@@ -1,7 +1,6 @@
 ﻿using NUI.Model.Abstract;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace NUI.Model.Models
 {
@@ -26,7 +25,8 @@ namespace NUI.Model.Models
         [MaxLength(255)]
         public string Images { get; set; }
 
-        public XElement MoreImages { get; set; }
+        [Column(TypeName = "xml")]
+        public string MoreImages { get; set; }
 
         [Required]
         public decimal Price { get; set; }

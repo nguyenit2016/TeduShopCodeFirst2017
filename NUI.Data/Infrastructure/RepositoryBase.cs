@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace NUI.Data.Infrastructure
 {
-    public abstract class RepositoryBase<T> where T : class
+    public abstract class RepositoryBase<T> : IRepository<T> where T : class
     {
         #region Properties
 
@@ -57,6 +57,16 @@ namespace NUI.Data.Infrastructure
             {
                 dbSet.Remove(obj);
             }
+        }
+
+        public virtual T GetSingleById(int id)
+        {
+            return dbSet.Find(id);
+        }
+
+        public virtual T GetSingleById(string id)
+        {
+            return dbSet.Find(id);
         }
 
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where, string includes)
