@@ -63,8 +63,23 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NuiShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositoties\FooterRepository.cs" />
+    <Compile Include="Repositoties\MenuGroupRepository.cs" />
+    <Compile Include="Repositoties\MenuRepository.cs" />
+    <Compile Include="Repositoties\OrderDetailRepository.cs" />
+    <Compile Include="Repositoties\OrderRepository.cs" />
+    <Compile Include="Repositoties\PageRepository.cs" />
+    <Compile Include="Repositoties\PostCategoryRepository.cs" />
+    <Compile Include="Repositoties\PostRepository.cs" />
+    <Compile Include="Repositoties\PostTagRepository.cs" />
     <Compile Include="Repositoties\ProductCategoryRepository.cs" />
     <Compile Include="Repositoties\ProductRepository.cs" />
+    <Compile Include="Repositoties\ProductTagRepository.cs" />
+    <Compile Include="Repositoties\SlideRepository.cs" />
+    <Compile Include="Repositoties\SupportOnlineRepository.cs" />
+    <Compile Include="Repositoties\SystemConfigRepository.cs" />
+    <Compile Include="Repositoties\TagRepository.cs" />
+    <Compile Include="Repositoties\VisitorStatisticRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
