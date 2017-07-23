@@ -45,8 +45,15 @@ namespace NUI.Data.Infrastructure
             dataContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public virtual void Delete(T entity)
+        public virtual void Delete(int id)
         {
+            var entity = dbSet.Find(id);
+            dbSet.Remove(entity);
+        }
+
+        public virtual void Delete(string id)
+        {
+            var entity = dbSet.Find(id);
             dbSet.Remove(entity);
         }
 

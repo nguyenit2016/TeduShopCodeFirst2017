@@ -3,7 +3,7 @@ using NUI.Model.Models;
 
 namespace NUI.Data.Repositoties
 {
-    public interface IPageRepository
+    public interface IPageRepository : IRepository<Page>
     {
     }
 

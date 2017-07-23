@@ -6,7 +6,7 @@ using System.Linq;
 namespace NUI.Data.Repositoties
 {
     //Khai bao interface de dung cac phuong thuc dac biet khong co trong RepositoryBase
-    public interface IProductCategoryRepository
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
         //Cac nghiep vu dac biet ngoai cac phuong thuc co trong RepositoryBase
         IEnumerable<ProductCategory> GetByAlias(string alias);

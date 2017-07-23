@@ -3,7 +3,7 @@ using NUI.Model.Models;
 
 namespace NUI.Data.Repositoties
 {
-    public interface IPostTagRepository
+    public interface IPostTagRepository : IRepository<PostTag>
     {
     }
 

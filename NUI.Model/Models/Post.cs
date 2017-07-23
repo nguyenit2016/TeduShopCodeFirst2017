@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NUI.Model.Abstract;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NUI.Model.Models
 {
     [Table("Posts")]
-    public class Post
+    public class Post : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -34,5 +36,7 @@ namespace NUI.Model.Models
 
         [ForeignKey("CategoryID")]
         public virtual PostCategory PostCategory { get; set; }
+
+        public virtual IEnumerable<PostTag> PostTags { get; set; }
     }
 }

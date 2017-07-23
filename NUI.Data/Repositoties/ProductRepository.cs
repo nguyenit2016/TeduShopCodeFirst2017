@@ -3,7 +3,7 @@ using NUI.Model.Models;
 
 namespace NUI.Data.Repositoties
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
     }
 
