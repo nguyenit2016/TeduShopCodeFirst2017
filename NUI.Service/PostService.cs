@@ -16,8 +16,9 @@ namespace NUI.Service
         void Delete(int id);
         IEnumerable<Post> GetAll();
         IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
         Post GetById(int id);
-        IQueryable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
+        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
         void SaveChanges();
     }
     public class PostService : IPostService
@@ -50,9 +51,9 @@ namespace NUI.Service
             return this._postRepository.GetAll(new string[] { "PostCategory" });
         }
 
-        public IQueryable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
+        public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
-            return this._postRepository.GetMultiPaging(x => x.Status, out totalRow, page, pageSize);
+            return this._postRepository.GetAllByTag(tag, pageSize, pageSize, out totalRow);
         }
 
         public IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow)
@@ -68,6 +69,11 @@ namespace NUI.Service
         public void SaveChanges()
         {
             this._unitOfWork.Commit();
+        }
+
+        public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
+        {
+            return this._postRepository.GetMultiPaging(x => x.Status && x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
         }
     }
 }
