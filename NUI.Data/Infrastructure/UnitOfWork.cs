@@ -12,7 +12,7 @@
 
         public NuiShopDbContext DbContext
         {
-            get { return dbContext ?? (dbContext = new NuiShopDbContext()); }
+            get { return dbContext ?? (dbContext = dbFactory.Init()); }
         }
 
         public void Commit()

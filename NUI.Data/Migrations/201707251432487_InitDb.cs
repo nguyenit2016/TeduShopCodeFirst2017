@@ -3,7 +3,7 @@ namespace NUI.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialDb : DbMigration
+    public partial class InitDb : DbMigration
     {
         public override void Up()
         {
@@ -148,6 +148,13 @@ namespace NUI.Data.Migrations
                         DisplayOrder = c.Int(),
                         Images = c.String(maxLength: 255),
                         HomeFlag = c.Boolean(),
+                        CreatedDate = c.DateTime(),
+                        CreatedBy = c.String(maxLength: 255),
+                        UpdatedDate = c.DateTime(),
+                        UpdatedBy = c.String(maxLength: 255),
+                        MetaKeyword = c.String(maxLength: 255),
+                        MetaDescription = c.String(maxLength: 255),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -165,6 +172,13 @@ namespace NUI.Data.Migrations
                         HomeFlag = c.Boolean(),
                         HotFlag = c.Boolean(),
                         ViewCount = c.Int(),
+                        CreatedDate = c.DateTime(),
+                        CreatedBy = c.String(maxLength: 255),
+                        UpdatedDate = c.DateTime(),
+                        UpdatedBy = c.String(maxLength: 255),
+                        MetaKeyword = c.String(maxLength: 255),
+                        MetaDescription = c.String(maxLength: 255),
+                        Status = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.PostCategories", t => t.CategoryID, cascadeDelete: true)
