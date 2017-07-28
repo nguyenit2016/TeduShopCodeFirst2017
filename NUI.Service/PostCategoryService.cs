@@ -2,6 +2,7 @@
 using NUI.Data.Repositoties;
 using NUI.Model.Models;
 using System.Collections.Generic;
+using System;
 
 namespace NUI.Service
 {
@@ -18,6 +19,8 @@ namespace NUI.Service
         IEnumerable<PostCategory> GetAllByParentId(int parentId);
 
         PostCategory GetById(int id);
+
+        void SaveChanges();
     }
 
     public class PostCategoryService : IPostCategoryService
@@ -54,6 +57,11 @@ namespace NUI.Service
         public PostCategory GetById(int id)
         {
             return _postCategoryRepository.GetSingleById(id);
+        }
+
+        public void SaveChanges()
+        {
+            _unitOfWork.Commit();
         }
 
         public void Update(PostCategory postCategory)
