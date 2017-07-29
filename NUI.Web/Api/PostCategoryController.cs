@@ -12,7 +12,7 @@ namespace NUI.Web.Api
     {
         private IPostCategoryService _postCategoryService;
 
-        public PostCategoryController(ErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
+        public PostCategoryController(IErrorService errorService, IPostCategoryService postCategoryService) : base(errorService)
         {
             this._postCategoryService = postCategoryService;
         }
@@ -22,18 +22,8 @@ namespace NUI.Web.Api
         {
             return CreateHttpResponse(request, () =>
             {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                {
-                    var listCategory = _postCategoryService.GetAll();
-                    _postCategoryService.SaveChanges();
-
-                    response = request.CreateResponse(HttpStatusCode.OK, listCategory);
-                }
-                else
-                {
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                }
+                var listCategory = _postCategoryService.GetAll();
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
                 return response;
             });
         }
