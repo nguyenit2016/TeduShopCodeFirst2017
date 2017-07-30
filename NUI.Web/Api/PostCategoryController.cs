@@ -1,9 +1,13 @@
-﻿using NUI.Model.Models;
+﻿using AutoMapper;
+using NUI.Model.Models;
 using NUI.Service;
 using NUI.Web.Infrastructure.Core;
+using NUI.Web.Models;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using NUI.Web.Infrastructure.Extentions;
 
 namespace NUI.Web.Api
 {
@@ -23,19 +27,24 @@ namespace NUI.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 var listCategory = _postCategoryService.GetAll();
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+                var listPostCategoryVm = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listPostCategoryVm);
                 return response;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 if (ModelState.IsValid)
                 {
-                    var category = _postCategoryService.Add(postCategory);
+                    PostCategory newPostCategory = new PostCategory();
+                    newPostCategory.CoppyDataPostCategory(postCategoryVm);
+
+                    var category = _postCategoryService.Add(newPostCategory);
                     _postCategoryService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.OK, category);
@@ -48,14 +57,18 @@ namespace NUI.Web.Api
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
+        [Route("update")]
+        public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 if (ModelState.IsValid)
                 {
-                    _postCategoryService.Update(postCategory);
+                    var postCategoryDb = _postCategoryService.GetById(postCategoryVm.ID);
+                    postCategoryDb.CoppyDataPostCategory(postCategoryVm);
+
+                    _postCategoryService.Update(postCategoryDb);
                     _postCategoryService.SaveChanges();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
@@ -68,6 +81,7 @@ namespace NUI.Web.Api
             });
         }
 
+        [Route("delete")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
