@@ -1,9 +1,10 @@
-﻿using NUI.Model.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using NUI.Model.Models;
 using System.Data.Entity;
 
 namespace NUI.Data
 {
-    public class NuiShopDbContext : DbContext
+    public class NuiShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public NuiShopDbContext() : base("NuiShopConnection")
         {
@@ -29,8 +30,15 @@ namespace NUI.Data
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Error> Errors { get; set; }
 
+        public static NuiShopDbContext Create()
+        {
+            return new NuiShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserRole>().HasKey(x => new { x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(x => x.UserId);
         }
     }
 }
