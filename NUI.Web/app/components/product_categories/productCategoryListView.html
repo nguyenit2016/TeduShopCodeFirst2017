@@ -31,7 +31,7 @@
                                 <th style="width: 10px">ID</th>
                                 <th>Tên danh mục</th>
                                 <th>Ngày tạo</th>
-                                <th style="width: 40px">Trạng thái</th>
+                                <th style="width: 80px">Trạng thái</th>
                                 <th style="width: 50px">#</th>
                             </tr>
                             <tr ng-repeat="item in productCategories">
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="box-footer">
-            Footer
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProductCategories(page)"></pager-directive>
         </div>
     </div>
 </section>
