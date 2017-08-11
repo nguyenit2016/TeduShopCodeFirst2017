@@ -32,12 +32,17 @@
                                 <th>Tên danh mục</th>
                                 <th>Ngày tạo</th>
                                 <th style="width: 40px">Trạng thái</th>
+                                <th style="width: 50px">#</th>
                             </tr>
                             <tr ng-repeat="item in productCategories">
                                 <td>{{item.ID}}</td>
                                 <td>{{item.Name}}</td>
-                                <td>{{item.CreatedDate}}</td>
-                                <td><span class="badge bg-red">{{item.Status}}</span></td>
+                                <td>{{item.CreatedDate | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+                                <td class="text-center"><span ng-class="{'badge bg-red' : item.Status == false, 'badge bg-green' : item.Status == true}">{{item.Status | statusFilter}}</span></td>
+                                <td>
+                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="#"><i class="fa fa-times"></i></a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
