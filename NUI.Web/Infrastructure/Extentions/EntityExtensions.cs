@@ -53,5 +53,29 @@ namespace NUI.Web.Infrastructure.Extentions
             post.MetaDescription = postVm.MetaDescription;
             post.Status = postVm.Status;
         }
+
+        /// <summary>
+        /// Coppy data từ một đối tượng ViewModel sang một đối tượng Model
+        /// </summary>
+        /// <param name="productCategory"></param>
+        /// <param name="productCategoryVm"></param>
+        public static void CoppyDataProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryVm)
+        {
+            productCategory.ID = productCategoryVm.ID;
+            productCategory.Name = productCategoryVm.Name;
+            productCategory.Alias = productCategoryVm.Alias;
+            productCategory.Description = productCategoryVm.Description;
+            productCategory.ParentID = productCategoryVm.ParentID;
+            productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
+            productCategory.Images = productCategoryVm.Images;
+            productCategory.HomeFlag = productCategoryVm.HomeFlag;
+            productCategory.CreatedDate = productCategoryVm.CreatedDate;
+            productCategory.CreatedBy = productCategoryVm.CreatedBy;
+            productCategory.UpdatedDate = productCategoryVm.UpdatedDate;
+            productCategory.UpdatedBy = productCategoryVm.UpdatedBy;
+            productCategory.MetaKeyword = productCategoryVm.MetaKeyword;
+            productCategory.MetaDescription = productCategoryVm.MetaDescription;
+            productCategory.Status = productCategoryVm.Status;
+        }
     }
 }

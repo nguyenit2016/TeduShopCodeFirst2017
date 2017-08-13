@@ -12,8 +12,12 @@
 
         $scope.getProductCategories = getProductCategories;
         $scope.search = search;
+        $scope.keyPressed = keyPressed;
 
         function search() {
+            getProductCategories();
+        }
+        function keyPressed() {
             getProductCategories();
         }
 
@@ -31,9 +35,9 @@
                 if (result.data.TotalCount == 0) {
                     notificationService.displayWarning('Không có dữ liệu');
                 }
-                else {
-                    notificationService.displaySuccess('Đã tìm thấy tổng số ' + result.data.TotalCount + ' bản ghi');
-                }
+                //else {
+                //    notificationService.displaySuccess('Đã tìm thấy tổng số ' + result.data.TotalCount + ' bản ghi');
+                //}
                 $scope.productCategories = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;

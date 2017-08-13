@@ -24,13 +24,16 @@
         </div>
         <div class="box-body">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="input-group">
-                        <input ng-model="keyword" type="text" class="form-control" placeholder="Từ khóa tìm kiếm...">
+                        <input ng-model="keyword" ng-keypress="keyPressed()" type="text" class="form-control" placeholder="Từ khóa tìm kiếm...">
                         <span class="input-group-btn">
                             <button ng-click="search()" class="btn btn-success" type="button">Tìm kiếm</button>
                         </span>
                     </div>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary" ui-sref="add_product_category">Thêm mới</button>
                 </div>
             </div>
 
