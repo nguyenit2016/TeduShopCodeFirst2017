@@ -56,7 +56,7 @@
                                 <td>{{item.CreatedDate | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
                                 <td class="text-center"><span ng-class="{'badge bg-red' : item.Status == false, 'badge bg-green' : item.Status == true}">{{item.Status | statusFilter}}</span></td>
                                 <td>
-                                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a ui-sref="edit_product_category({id:item.ID})"><i class="fa fa-pencil-square-o"></i></a>
                                     <a href="#"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>

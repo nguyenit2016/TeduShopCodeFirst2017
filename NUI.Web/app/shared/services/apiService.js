@@ -8,7 +8,21 @@
     function apiService($http, notificationService) {
         return {
             get: get,
-            post: post
+            post: post,
+            put: put
+        }
+        function put(url, data, successed, failed) {
+            $http.put(url, data).then(function (result) {
+                successed(result);
+            }, function (error) {
+                console.log(error.status);
+                if (error.status === 401) {
+                    notificationService.displayError('Yêu cầu đăng nhập');
+                }
+                else if (failed != null) {
+                    failed(error);
+                }
+            });
         }
         function post(url, data, successed, failed) {
             $http.post(url, data).then(function (result) {
