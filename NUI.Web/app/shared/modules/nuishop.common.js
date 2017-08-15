@@ -1,3 +1,3 @@
 ﻿(function () {
-    angular.module('nuishop.common', ['ui.router'])
+    angular.module('nuishop.common', ['ui.router', 'ngBootbox'])
 })();

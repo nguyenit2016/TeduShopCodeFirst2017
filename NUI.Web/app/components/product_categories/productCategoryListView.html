@@ -34,6 +34,7 @@
                 </div>
                 <div class="col-md-6">
                     <button class="btn btn-primary" ui-sref="add_product_category">Thêm mới</button>
+                    <button class="btn btn-danger" ng-click="deleteMulti()" id="btnDelete" disabled>Xóa</button>
                 </div>
             </div>
 
@@ -44,6 +45,7 @@
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
+                                <th style="width: 10px"><input name="all" type="checkbox" ng-click="selectAll()"/></th>
                                 <th style="width: 10px">ID</th>
                                 <th>Tên danh mục</th>
                                 <th>Ngày tạo</th>
@@ -51,13 +53,14 @@
                                 <th style="width: 50px">#</th>
                             </tr>
                             <tr ng-repeat="item in productCategories">
+                                <td><input ng-model="item.checked" name="all" type="checkbox"/></td>
                                 <td>{{item.ID}}</td>
                                 <td>{{item.Name}}</td>
                                 <td>{{item.CreatedDate | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
                                 <td class="text-center"><span ng-class="{'badge bg-red' : item.Status == false, 'badge bg-green' : item.Status == true}">{{item.Status | statusFilter}}</span></td>
                                 <td>
                                     <a ui-sref="edit_product_category({id:item.ID})"><i class="fa fa-pencil-square-o"></i></a>
-                                    <a href="#"><i class="fa fa-times"></i></a>
+                                    <a ng-click="deleteProductCategory(item.ID)" style="cursor:pointer;"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                         </tbody>

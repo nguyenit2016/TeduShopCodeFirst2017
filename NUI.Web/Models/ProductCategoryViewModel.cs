@@ -7,9 +7,9 @@ namespace NUI.Web.Models
     public class ProductCategoryViewModel
     {
         public int ID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tên danh mục là bắt buộc. ")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "SEO title là bắt buộc. ")]
         public string Alias { get; set; }
         public string Description { get; set; }
         public int? ParentID { get; set; }
