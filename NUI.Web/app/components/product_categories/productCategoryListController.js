@@ -81,6 +81,7 @@
         function search() {
             getProductCategories();
         }
+
         function keyPressed() {
             getProductCategories();
         }
