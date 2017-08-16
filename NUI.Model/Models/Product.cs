@@ -41,6 +41,7 @@ namespace NUI.Model.Models
         public bool? HomeFlag { get; set; }
         public bool? HotFlag { get; set; }
         public int? ViewCount { get; set; }
+        public string Tags { get; set; }
 
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
