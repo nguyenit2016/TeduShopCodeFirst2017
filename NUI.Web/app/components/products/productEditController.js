@@ -7,6 +7,7 @@
         $scope.product = {
             UpdatedDate: new Date()
         }
+        $scope.moreImages = [];
 
         $scope.UpdateProduct = UpdateProduct;
         $scope.GetSeoTitle = GetSeoTitle;
@@ -15,10 +16,22 @@
             height: '200px'
         }
         $scope.ChooseImage = ChooseImage;
+        $scope.ChooseMoreImage = ChooseMoreImage;
+
+        function ChooseMoreImage() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.moreImages.push(fileUrl);
+                })
+            }
+            finder.popup();
+        }
 
         function LoadProductDetail() {
             apiService.get('api/product/getbyid/' + $stateParams.id, null, function (result) {
                 $scope.product = result.data;
+                $scope.moreImages = JSON.parse($scope.product.MoreImages);
             }, function (error) {
                 notificationService.displayError(error.data);
             });
@@ -27,7 +40,9 @@
         function ChooseImage() {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.product.Images = fileUrl;
+                $scope.$apply(function () {
+                    $scope.product.Images = fileUrl;
+                })
             }
             finder.popup();
         }
@@ -37,6 +52,7 @@
         }
 
         function UpdateProduct() {
+            $scope.product.MoreImages = JSON.stringify($scope.moreImages);
             apiService.put('api/product/update', $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + ' đã được cập nhật.');
                 $state.go('products');

@@ -10,6 +10,7 @@
             Status: true,
             HomeFlag: true
         }
+        $scope.moreImages = [];
 
         $scope.AddProduct = AddProduct;
         $scope.GetSeoTitle = GetSeoTitle;
@@ -18,11 +19,24 @@
             height: '200px'
         }
         $scope.ChooseImage = ChooseImage;
+        $scope.ChooseMoreImage = ChooseMoreImage;
+
+        function ChooseMoreImage() {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.$apply(function () {
+                    $scope.moreImages.push(fileUrl);
+                })
+            }
+            finder.popup();
+        }
 
         function ChooseImage() {
             var finder = new CKFinder();
             finder.selectActionFunction = function (fileUrl) {
-                $scope.product.Images = fileUrl;
+                $scope.$apply(function () {
+                    $scope.product.Images = fileUrl;
+                })
             }
             finder.popup();
         }
@@ -32,6 +46,7 @@
         }
 
         function AddProduct() {
+            $scope.product.MoreImages = JSON.stringify($scope.moreImages);
             apiService.post('api/product/create', $scope.product, function (result) {
                 notificationService.displaySuccess(result.data.Name + ' đã được thêm mới.');
                 $state.go('products');

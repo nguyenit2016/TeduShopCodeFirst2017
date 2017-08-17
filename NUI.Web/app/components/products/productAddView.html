@@ -19,7 +19,7 @@
         <form class="form-horizontal" novalidate name="frmAddProduct" role="form" ng-submit="AddProduct()">
             <div class="box-body">
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tên sản phẩm</label>
+                    <label for="" class="col-sm-2 control-label">Tên sản phẩm</label>
 
                     <div class="col-sm-10">
                         <input type="text" class="form-control" required ng-maxlength="256" ng-change="GetSeoTitle()" name="name" ng-model="product.Name">
@@ -45,7 +45,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Mô tả ngắn</label>
+                    <label for="inputPassword3" class="col-sm-2 control-label">Thêm ảnh</label>
+
+                    <div class="col-sm-10">
+                        <ul class="list-inline">
+                            <li ng-repeat="img in moreImages"><img ng-src="{{img}}" width="100"/></li>
+                        </ul>
+                        <button class="btn btn-default" type="button" ng-click="ChooseMoreImage()">Chọn ảnh</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">Mô tả ngắn</label>
 
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="description" ng-maxlength="500" ng-model="product.Description"/>
@@ -53,45 +63,46 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Nội dung</label>
+                    <label for="" class="col-sm-2 control-label">Nội dung</label>
 
                     <div class="col-sm-10">
-                        <textarea type="text" class="form-control" name="description" ckeditor="ckeditorOptions" ng-model="product.Description" ></textarea>
+                        <textarea type="text" class="form-control" name="content" ckeditor="ckeditorOptions" ng-model="product.Content" ></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Tags</label>
+                    <label for="" class="col-sm-2 control-label">Tags</label>
 
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="tags" ng-model="product.Tags">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Danh mục</label>
+                    <label for="" class="col-sm-2 control-label">Danh mục</label>
 
                     <div class="col-sm-10">
-                        <select name="productCategoryID" class="form-control" ng-model="product.CategoryID" ng-options="option.ID as option.Name for option in productCategories">
+                        <select name="productCategoryID" class="form-control" required ng-model="product.CategoryID" ng-options="option.ID as option.Name for option in productCategories">
                             <option value="">Chọn danh mục</option>
                         </select>
                         <input name="productCategoryID" type="hidden" ng-model="product.CategoryID" />
+                        <span ng-show="frmAddProduct.productCategoryID.$invalid" class="has-error">Danh mục là bắt buộc. </span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Thứ tự hiển thị</label>
+                    <label for="" class="col-sm-2 control-label">Thứ tự hiển thị</label>
 
                     <div class="col-sm-10">
                         <input type="number" class="form-control" name="displayOrder" ng-model="product.DisplayOrder">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Keyword</label>
+                    <label for="" class="col-sm-2 control-label">Meta Keyword</label>
 
                     <div class="col-sm-10">
                         <input type="email" class="form-control" name="metaKeyword" ng-model="product.MetaKeyword">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Meta Description</label>
+                    <label for="" class="col-sm-2 control-label">Meta Description</label>
 
                     <div class="col-sm-10">
                         <textarea class="form-control" name="metaDescription" ng-model="product.MetaDescription"></textarea>
