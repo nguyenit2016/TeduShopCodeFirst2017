@@ -3,59 +3,63 @@
 (function (app) {
     app.service('apiService', apiService);
 
-    apiService.$inject = ['$http', 'notificationService'];
+    apiService.$inject = ['$http', 'notificationService', 'authenticationService'];
 
-    function apiService($http, notificationService) {
+    function apiService($http, notificationService, authenticationService) {
         return {
             get: get,
             post: post,
             put: put,
             del: del
         }
-        function del(url, data, successed, failed) {
+        function del(url, data, success, failure) {
+            authenticationService.setHeader();
             $http.delete(url, data).then(function (result) {
-                successed(result);
+                success(result);
             }, function (error) {
                 console.log(error.status);
                 if (error.status === 401) {
                     notificationService.displayError('Yêu cầu đăng nhập');
                 }
-                else if (failed != null) {
-                    failed(error);
+                else if (failure != null) {
+                    failure(error);
                 }
             });
         }
-        function put(url, data, successed, failed) {
+        function put(url, data, success, failure) {
+            authenticationService.setHeader();
             $http.put(url, data).then(function (result) {
-                successed(result);
+                success(result);
             }, function (error) {
                 console.log(error.status);
                 if (error.status === 401) {
                     notificationService.displayError('Yêu cầu đăng nhập');
                 }
-                else if (failed != null) {
-                    failed(error);
+                else if (failure != null) {
+                    failure(error);
                 }
             });
         }
-        function post(url, data, successed, failed) {
+        function post(url, data, success, failure) {
+            authenticationService.setHeader();
             $http.post(url, data).then(function (result) {
-                successed(result);
+                success(result);
             }, function (error) {
                 console.log(error.status);
                 if (error.status === 401) {
                     notificationService.displayError('Yêu cầu đăng nhập');
                 }
-                else if (failed != null) {
-                    failed(error);
+                else if (failure != null) {
+                    failure(error);
                 }
             });
         }
-        function get(url, params, successed, failed) {
+        function get(url, params, success, failure) {
+            authenticationService.setHeader();
             $http.get(url, params).then(function (result) {
-                successed(result);
+                success(result);
             }, function (error) {
-                failed(error);
+                failure(error);
             });
         }
     }

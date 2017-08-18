@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace NUI.Web.Api
 {
     [RoutePrefix("api/productcategory")]
+    [Authorize]
     public class ProductCategoryController : ApiControllerBase
     {
         #region Initialize
@@ -91,6 +92,7 @@ namespace NUI.Web.Api
                     var newProductCategory = new ProductCategory();
                     newProductCategory.CoppyDataProductCategory(productCategoryVm);
                     newProductCategory.CreatedDate = DateTime.Now;
+                    newProductCategory.CreatedBy = User.Identity.Name;
                     _productCategoryService.Add(newProductCategory);
                     _productCategoryService.SaveChanges();
 
@@ -118,6 +120,7 @@ namespace NUI.Web.Api
                     var dbProductCategory = _productCategoryService.GetById(productCategoryVm.ID);
                     dbProductCategory.CoppyDataProductCategory(productCategoryVm);
                     dbProductCategory.UpdatedDate = DateTime.Now;
+                    dbProductCategory.UpdatedBy = User.Identity.Name;
                     _productCategoryService.Update(dbProductCategory);
                     _productCategoryService.SaveChanges();
 
