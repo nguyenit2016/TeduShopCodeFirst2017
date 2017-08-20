@@ -6,24 +6,38 @@ namespace NUI.Web.Models
 {
     public class ProductCategoryViewModel
     {
-        public int ID { get; set; }
-        [Required(ErrorMessage = "Tên danh mục là bắt buộc. ")]
-        public string Name { get; set; }
-        [Required(ErrorMessage = "SEO title là bắt buộc. ")]
-        public string Alias { get; set; }
-        public string Description { get; set; }
-        public int? ParentID { get; set; }
-        public int? DisplayOrder { get; set; }
-        public string Images { get; set; }
-        public bool? HomeFlag { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public string MetaKeyword { get; set; }
-        public string MetaDescription { get; set; }
-        [Required]
-        public bool Status { get; set; }
-        public virtual IEnumerable<ProductViewModel> Products { get; set; }
+        public int ID { set; get; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập tên danh mục")]
+        public string Name { set; get; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập tiêu đề SEO")]
+        public string Alias { set; get; }
+
+        public string Description { set; get; }
+
+        public int? ParentID { set; get; }
+        public int? DisplayOrder { set; get; }
+
+        public string Images { set; get; }
+
+        public bool? HomeFlag { set; get; }
+
+        public virtual IEnumerable<PostViewModel> Posts { set; get; }
+
+        public DateTime? CreatedDate { set; get; }
+
+        public string CreatedBy { set; get; }
+
+        public DateTime? UpdatedDate { set; get; }
+
+        public string UpdatedBy { set; get; }
+
+        public string MetaKeyword { set; get; }
+
+        public string MetaDescription { set; get; }
+
+        [Required(ErrorMessage = "Yêu cầu nhập trạng thái")]
+        public bool Status { set; get; }
     }
 }
