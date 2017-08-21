@@ -72,7 +72,7 @@ ul.support li a {
 }
 .header-bottom-right{
 	float: right;
-	width: 37%;
+	width: 45%;
 	text-align: center;
 	padding-top:1.7em;
 }
@@ -81,7 +81,7 @@ ul.support li a {
 	width:40%;
 }
 .cart{
-	width:24%;
+	width:25%;
 }
 .account a span{
 	background: url(../images/img-sprite.png)-117px -30px;
@@ -104,7 +104,7 @@ ul.support li a {
 }
 ul.login{
 	float:left;
-	width:36%;
+	width:35%;
 	margin:0;
 }
 ul.login li{
@@ -125,7 +125,7 @@ ul.login li a span{
 	background:#fff;
 	border: 1px solid #ddd;
 	position: relative;
-	width: 47%;
+	width: 55%;
 	float: right;
 	margin: 1.2em 0 0;
 }
@@ -363,8 +363,8 @@ a.banner-matter{
 .con-sed-grid{
 	border: 1px solid #ddd;
 	padding: 1.5em 1em 2em;
-	margin: 0em 3% 0 0;
-	width: 48%;
+	margin: 0em 2% 0 0;
+	width: 49%;
 }
 .elit-grid{
 	float: left;
@@ -445,8 +445,8 @@ h5.latest-product{
 .chain-grid{
 	border: 1px solid #ddd;
 	position: relative;	
-	width: 30.7%;
-	margin: 0 3% 0 0;
+	width: 32%;
+	margin: 0 2% 0 0;
 	padding:0;
 }
 .menu-chain{
@@ -1059,7 +1059,7 @@ ul.face-in-to li a span.facebook-in{
 .latter input[type="submit"] {
 	outline: none;
 	cursor: pointer;
-	width: 35%;
+	width: 30%;
 	padding: 7px;
 	background: #000;
 	color: #fff;
@@ -1067,8 +1067,8 @@ ul.face-in-to li a span.facebook-in{
 	font-weight: 700;
 	border: none;
 	position: absolute;
-	left: 14.7em;
-	top: 15px;
+	left: 15em;
+	top: 16px;
 	-webkit-apperance:none;
 }	
 .sub-left-right{

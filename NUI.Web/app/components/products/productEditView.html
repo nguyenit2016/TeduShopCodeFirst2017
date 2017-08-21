@@ -6,7 +6,7 @@
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
         <li><a href="#">Sản phẩm</a></li>
-        <li class="active">Sản phẩm</li>
+        <li class="active">{{product.Name}}</li>
     </ol>
 </section>
 <section class="content">
@@ -38,10 +38,11 @@
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Hình ảnh</label>
-
-                    <div class="col-sm-10">
+                    <div class="input-group col-sm-10" style="padding: 0 15px 0 15px;">
                         <input type="text" class="form-control" name="images" ng-model="product.Images">
-                        <button class="btn btn-default" type="button" ng-click="ChooseImage()">Chọn ảnh</button>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="ChooseImage()">Chọn ảnh</button>
+                        </span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -55,7 +56,19 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="" class="col-sm-2 control-label">Mô tả ngắn</label>
+                    <label for="" class="col-sm-2 control-label">Giá sản phẩm</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="price" ng-maxlength="500" ng-model="product.Price" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">Giá khuyến mại</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="promotionPrice" ng-maxlength="500" ng-model="product.PromotionPrice" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-2 control-label">Mô tả ngắn</label>
 
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="description" ng-maxlength="500" ng-model="product.Description" />

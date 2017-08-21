@@ -9,7 +9,14 @@
                 var url = "/" + category.Alias + ".pc-" + category.ID + ".html";
                 var childCategories = Model.Where(x => x.ParentID == category.ID);
                 <li class="item1">
-                    <a href="@url">@category.Name @(childCategories.Count() > 0 ? "<img class=\"arrow-img\" src=\"/Assets/client/images/arrow1.png\" alt=\"\" />" : "") </a>
+                    @if (childCategories.Count() > 0)
+                    {
+                        <a href="@url">@category.Name <img class="arrow-img" src="/Assets/client/images/arrow1.png" alt="" /> </a>
+                    }
+                    else
+                    {
+                        <a href="@url">@category.Name</a>
+                    }
                     @if (childCategories.Count() > 0)
                     {
                         <ul class="cute">
@@ -52,5 +59,5 @@
             <h6><a href="single.html">Lorem ipsum dolor</a></h6>
         </div>
     </div>
-    <a class="view-all all-product" href="product.html">VIEW ALL PRODUCTS<span> </span></a>
+    <a class="view-all all-product" href="product.html">Xem tất cả sản phẩm<span> </span></a>
 </div>
