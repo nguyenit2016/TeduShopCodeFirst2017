@@ -3,6 +3,7 @@
 <head>
     <title>Big shope</title>
     <link href="/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Assets/Client/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
     <!--theme-style-->
     <link href="/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
@@ -16,22 +17,14 @@
 </head>
 <body>
     @{ Html.RenderAction("Header", "Home");}
-    
     <div class="container">
         @RenderBody()
+        @{ Html.RenderAction("Category", "Home");}
     </div>
-
-    @RenderSection("homeProducts", required: false)
     
-    <div class="clearfix"> </div>
-    </div>
-
-    @{ Html.RenderAction("Category", "Home");}
-
-    <div class="clearfix"> </div>
-    </div>
-
     @{ Html.RenderAction("Footer", "Home");}
+
+    <div class="clearfix"> </div>
 
     @RenderSection("footerJS", required: false)
 </body>
