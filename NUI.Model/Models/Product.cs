@@ -32,6 +32,7 @@ namespace NUI.Model.Models
         public decimal Price { get; set; }
 
         public decimal? PromotionPrice { get; set; }
+
         public int Warranty { get; set; }
 
         [MaxLength(500)]
@@ -42,6 +43,8 @@ namespace NUI.Model.Models
         public bool? HotFlag { get; set; }
         public int? ViewCount { get; set; }
         public string Tags { get; set; }
+
+        public int Quantity { get; set; }
 
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }

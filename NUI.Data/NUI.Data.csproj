@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201708201309123_AddContentToSlide.Designer.cs">
       <DependentUpon>201708201309123_AddContentToSlide.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708221549557_addMoreQuantity.cs" />
+    <Compile Include="Migrations\201708221549557_addMoreQuantity.Designer.cs">
+      <DependentUpon>201708221549557_addMoreQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NuiShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708201309123_AddContentToSlide.resx">
       <DependentUpon>201708201309123_AddContentToSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708221549557_addMoreQuantity.resx">
+      <DependentUpon>201708221549557_addMoreQuantity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

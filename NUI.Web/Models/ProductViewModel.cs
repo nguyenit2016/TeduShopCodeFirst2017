@@ -26,6 +26,7 @@ namespace NUI.Web.Models
         public string MetaDescription { get; set; }
         public bool Status { get; set; }
         public string Tags { get; set; }
+        public int Quantity { get; set; }
         public virtual ProductCategoryViewModel ProductCategory { get; set; }
     }
 }
