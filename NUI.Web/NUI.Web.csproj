@@ -3404,6 +3404,7 @@
     <Content Include="Assets\Client\images\wa.jpg" />
     <Content Include="Assets\Client\images\wat.jpg" />
     <Content Include="Assets\Client\images\zoom.png" />
+    <Content Include="Assets\Client\js\common.js" />
     <Content Include="Assets\Client\js\jquery.etalage.min.js" />
     <Content Include="Assets\Client\js\jquery.flexisel.js" />
     <Content Include="Assets\Client\js\jquery.min.js" />
@@ -3745,6 +3746,15 @@
     <Content Include="Assets\Client\font-awesome-4.7.0\scss\_screen-reader.scss" />
     <Content Include="Assets\Client\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Assets\Client\font-awesome-4.7.0\scss\_variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
