@@ -92,6 +92,14 @@
     <Compile Include="Migrations\201708221549557_addMoreQuantity.Designer.cs">
       <DependentUpon>201708221549557_addMoreQuantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708241501349_addforekey.cs" />
+    <Compile Include="Migrations\201708241501349_addforekey.Designer.cs">
+      <DependentUpon>201708241501349_addforekey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708241538297_addFieldForPages.cs" />
+    <Compile Include="Migrations\201708241538297_addFieldForPages.Designer.cs">
+      <DependentUpon>201708241538297_addFieldForPages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NuiShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708221549557_addMoreQuantity.resx">
       <DependentUpon>201708221549557_addMoreQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708241501349_addforekey.resx">
+      <DependentUpon>201708241501349_addforekey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708241538297_addFieldForPages.resx">
+      <DependentUpon>201708241538297_addFieldForPages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

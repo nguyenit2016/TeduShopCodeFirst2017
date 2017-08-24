@@ -1,22 +1,14 @@
 ﻿@model NUI.Web.Infrastructure.Core.PaginationSet<NUI.Web.Models.ProductViewModel>
 
 @{
-    var keyword = (string)ViewBag.Keyword;
-    ViewBag.Title = "Kết quả tìm kiếm từ khóa " + keyword;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    var tag = (NUI.Web.Models.TagViewModel)ViewBag.Tag;
+    ViewBag.Title = "Kết quả tìm kiếm tag " + tag.Name;
+    Layout = "~/Views/Shared/Layouts.cshtml";
 }
 <div class="women-product">
     <div class="w_content">
         <div class="women">
-            <a href=""><h4>Kết quả tìm kiếm: @keyword - <span>@Model.TotalCount sản phẩm</span> </h4></a>
-            <ul class="w_nav">
-                <li>Sắp xếp : </li>
-                <li><a class="active" href="?page=@Model.Page&sort=popular">phổ biến</a></li> |
-                <li><a href="?page=@Model.Page&sort=new">mới </a></li> |
-                <li><a href="?page=@Model.Page&sort=discount">giảm giá</a></li> |
-                <li><a href="?page=@Model.Page&sort=price">giá: thấp -> cao </a></li>
-                <div class="clearfix"> </div>
-            </ul>
+            <a href=""><h4>Kết quả tìm kiếm: @tag.Name - <span>@Model.TotalCount sản phẩm</span> </h4></a>
             <div class="clearfix"> </div>
         </div>
     </div>

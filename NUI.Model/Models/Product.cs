@@ -1,4 +1,5 @@
 ﻿using NUI.Model.Abstract;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -48,5 +49,7 @@ namespace NUI.Model.Models
 
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
+
+        public virtual IEnumerable<ProductTag> ProductTags { get; set; }
     }
 }

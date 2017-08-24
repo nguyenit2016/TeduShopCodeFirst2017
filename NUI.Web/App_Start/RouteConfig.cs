@@ -14,9 +14,9 @@ namespace NUI.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "About",
-                url: "gioi-thieu.html",
-                defaults: new { controller = "About", action = "Index", id = UrlParameter.Optional },
+                name: "Page",
+                url: "trang/{alias}.html",
+                defaults: new { controller = "Page", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new string[] { "NUI.Web.Controllers" }
             );
 
@@ -45,6 +45,13 @@ namespace NUI.Web
                 name: "Product",
                 url: "{alias}.p-{id}.html",
                 defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
+                namespaces: new string[] { "NUI.Web.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "TagList",
+                url: "tag/{tagId}.html",
+                defaults: new { controller = "Product", action = "ListByTag", tagId = UrlParameter.Optional },
                 namespaces: new string[] { "NUI.Web.Controllers" }
             );
 
