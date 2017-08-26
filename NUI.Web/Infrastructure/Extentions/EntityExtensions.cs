@@ -1,5 +1,6 @@
 ﻿using NUI.Model.Models;
 using NUI.Web.Models;
+using System;
 
 namespace NUI.Web.Infrastructure.Extentions
 {
@@ -108,6 +109,21 @@ namespace NUI.Web.Infrastructure.Extentions
             product.Status = productVm.Status;
             product.Tags = productVm.Tags;
             product.Quantity = productVm.Quantity;
+        }
+
+        /// <summary>
+        /// Coppy data từ một đối tượng ViewModel sang một đối tượng Model
+        /// </summary>
+        /// <param name="feedback"></param>
+        /// <param name="feedbackVm"></param>
+        public static void CoppyDataFeedback(this Feedback feedback, FeedbackViewModel feedbackVm)
+        {
+            feedback.ID = feedbackVm.ID;
+            feedback.Name = feedbackVm.Name;
+            feedback.Email = feedbackVm.Email;
+            feedback.Message = feedbackVm.Message;
+            feedback.CreatedDate = DateTime.Now;
+            feedback.Status = feedbackVm.Status;
         }
     }
 }

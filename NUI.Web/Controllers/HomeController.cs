@@ -23,6 +23,7 @@ namespace NUI.Web.Controllers
             this._commonService = commonService;
         }
 
+        [OutputCache(Duration = 3600, Location = System.Web.UI.OutputCacheLocation.Server)]
         public ActionResult Index()
         {
             var slideModel = _commonService.GetSlides();
@@ -57,6 +58,7 @@ namespace NUI.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult Footer()
         {
             var model = _commonService.GetFooter();
@@ -71,6 +73,7 @@ namespace NUI.Web.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 3600)]
         public ActionResult Category()
         {
             var model = _productCategoryService.GetAll();

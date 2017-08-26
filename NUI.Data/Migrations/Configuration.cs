@@ -20,6 +20,7 @@
             //CreateUserSample(context);
             CreateSlideSample(context);
             CreatePageSample(context);
+            CreateContactDetailSample(context);
         }
 
         private void CreateUserSample(NuiShopDbContext context)
@@ -106,6 +107,27 @@
                     Status = true
                 };
                 context.Pages.Add(page);
+                context.SaveChanges();
+            }
+        }
+
+        private void CreateContactDetailSample(NuiShopDbContext context)
+        {
+            if (context.ContactDetails.Count() == 0)
+            {
+                var contactDetail = new NUI.Model.Models.ContactDetail()
+                {
+                    Name = "Giới thiệu",
+                    Address = "123, Cộng Hòa, P. 12, Q. Tân Bình, Tp. Hồ Chí Minh",
+                    Email = "nguyenpv1302@gmail.com",
+                    Lat = 10.80152,
+                    Lng = 106.650988,
+                    Phone = "0946999878",
+                    Website = "abc.com",
+                    Other = "",
+                    Status = true
+                };
+                context.ContactDetails.Add(contactDetail);
                 context.SaveChanges();
             }
         }

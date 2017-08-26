@@ -13,6 +13,9 @@ namespace NUI.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // BotDetect requests must not be routed
+            routes.IgnoreRoute("{*botdetect}", new { botdetect = @"(.*)BotDetectCaptcha\.ashx" });
+
             routes.MapRoute(
                 name: "Page",
                 url: "trang/{alias}.html",
@@ -59,6 +62,13 @@ namespace NUI.Web
                 name: "Search",
                 url: "tim-kiem.html",
                 defaults: new { controller = "Product", action = "Search", id = UrlParameter.Optional },
+                namespaces: new string[] { "NUI.Web.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Contact",
+                url: "lien-he.html",
+                defaults: new { controller = "ContactDetail", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "NUI.Web.Controllers" }
             );
 

@@ -1,0 +1,81 @@
+﻿@using BotDetect.Web.Mvc;
+@model NUI.Web.Models.FeedbackViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts.cshtml";
+}
+<link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl" rel="stylesheet" type="text/css" />
+@section footerJS{
+    @*<script src="~/Assets/Client/js/controller/contact-detail.js"></script>*@
+    <script>
+        function initMap () {
+            var uluru = { lat: @Model.ContactDetail.Lat, lng: @Model.ContactDetail.Lng };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: uluru
+            });
+
+            var contentString = $("hidContactDetail").val();
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: 'Núi shop'
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcowI-3cdq0tk40F-qonCN2q5jWoT64tM&callback=initMap"></script>
+}
+
+<input type="hidden" id="hidContactDetail" value="@Model.ContactDetail.Address" />
+<div class="main">
+    <div class="reservation_top">
+        <div class="contact_right">
+            <h3>Thông tin liên hệ</h3>
+            <address class="address">
+                <p>@Model.ContactDetail.Address</p>
+                <dl>
+                    <dt> </dt>
+                    <dd>Điện thoại:<span> @Model.ContactDetail.Phone</span></dd>
+                    <dd>E-mail:&nbsp; <a href="mailto:@(Model.ContactDetail.Email)">@(Model.ContactDetail.Email)</a></dd>
+                </dl>
+            </address>
+            <div class="clearfix"></div>
+            <div id="map" style="height: 400px;"></div>
+        </div>
+    </div>
+    <div class="reservation_top">
+        <div class="contact_right">
+            <h3>Gởi phản hồi</h3>
+            <div class="contact-form">
+                @using (Html.BeginForm("SendFeedback", "ContactDetail", FormMethod.Post))
+                {
+                    if (ViewData["SuccessMsg"] != null)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <strong>Chúc mừng bạn! </strong> gởi phản hồi thành công.<br />
+                            Chúng tối sẽ liên hệ với bạn sớm nhất có thể.
+                        </div>
+                    }
+                    @Html.ValidationSummary(false, "", new { @class = "error" });
+                    @Html.TextBoxFor(m => m.Name, new { @class = "textbox", @required = "required" });
+                    @Html.TextBoxFor(m => m.Email, new { @class = "textbox", @required = "required" });
+                    @Html.TextAreaFor(m => m.Message, new { @required = "required" });
+                    MvcCaptcha contactCaptcha = new MvcCaptcha("ContactCaptcha");
+                    @Html.Captcha(contactCaptcha)
+                    @Html.TextBox("CaptchaCode")
+                    <input type="submit" value="Gửi">
+                    <div class="clearfix"> </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

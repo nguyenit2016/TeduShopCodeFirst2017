@@ -4,3 +4,6 @@
 .tagList li{
     float: left;
 }
+.error{
+    color: red;
+}
