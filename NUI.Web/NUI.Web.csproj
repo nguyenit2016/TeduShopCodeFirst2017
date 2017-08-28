@@ -237,6 +237,7 @@
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\ProductCategoryViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SlideViewModel.cs" />
     <Compile Include="Models\TagViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3425,6 +3426,7 @@
     <Content Include="Assets\Client\js\jquery.min.js" />
     <Content Include="Assets\Client\js\jquery.wmuSlider.js" />
     <Content Include="Assets\Client\template\contact_template.html" />
+    <Content Include="Assets\Client\template\newuser.html" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -3452,7 +3454,6 @@
     <Folder Include="Assets\admin\js\" />
     <Folder Include="Assets\admin\libs\ckfinder\" />
     <Folder Include="Views\About\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
@@ -3779,6 +3780,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ContactDetail\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

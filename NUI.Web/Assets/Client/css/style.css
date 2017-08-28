@@ -908,7 +908,7 @@ a.forgot {
 	width: 85%;
 	font-size: 1em;
 	padding: 0.5em;
-	margin: 0.5em 0;
+	margin: 0 0 25px 0;
 }
 .checkbox {
 	margin-bottom: 4px;
