@@ -30,6 +30,24 @@
               .append("<a>" + item.label + "</a>")
               .appendTo(ul);
         };
+        $(".btnAddToCart").off('click').on('click', function (e) {
+            e.preventDefault();
+            var productId = parseInt($(this).data('id'));
+            
+            $.ajax({
+                url: '/Cart/Add',
+                data: {
+                    productId: productId
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function (res) {
+                    if (res.status == true) {
+                        alert("Thêm sản phẩm thành công.");
+                    }
+                }
+            })
+        });
     }
 }
 common.init();

@@ -73,6 +73,20 @@ namespace NUI.Web
             );
 
             routes.MapRoute(
+                name: "Cart",
+                url: "gio-hang.html",
+                defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "NUI.Web.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Checkout",
+                url: "thanh-toan.html",
+                defaults: new { controller = "Cart", action = "Checkout", id = UrlParameter.Optional },
+                namespaces: new string[] { "NUI.Web.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

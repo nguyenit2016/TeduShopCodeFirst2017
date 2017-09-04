@@ -1,6 +1,8 @@
-﻿using NUI.Model.Models;
+﻿using AutoMapper;
+using NUI.Model.Models;
 using NUI.Web.Models;
 using System;
+using System.Collections.Generic;
 
 namespace NUI.Web.Infrastructure.Extentions
 {
@@ -124,6 +126,26 @@ namespace NUI.Web.Infrastructure.Extentions
             feedback.Message = feedbackVm.Message;
             feedback.CreatedDate = DateTime.Now;
             feedback.Status = feedbackVm.Status;
+        }
+
+        /// <summary>
+        /// Coppy data từ một đối tượng ViewModel sang một đối tượng Model
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="orderVm"></param>
+        public static void CoppyDataOrder(this Order order, OrderViewModel orderVm)
+        {
+            order.ID = orderVm.ID;
+            order.CustomerName = orderVm.CustomerName;
+            order.CustomerAddress = orderVm.CustomerAddress;
+            order.CustomerEmail = orderVm.CustomerEmail;
+            order.CustomerMobile = orderVm.CustomerMobile;
+            order.CustomerMessage = orderVm.CustomerMessage;
+            order.PaymentMethod = orderVm.PaymentMethod;
+            order.CrearedDate = DateTime.Now;
+            order.CrearedBy = orderVm.CrearedBy;
+            order.Status = orderVm.Status;
+            order.CustomerId = orderVm.CustomerId;
         }
     }
 }
